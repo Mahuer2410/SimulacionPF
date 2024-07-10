@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     public int numberOfInstances; // Cantidad de instancias deseadas
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < numberOfInstances; i++)
         {
