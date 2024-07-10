@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NpcMove2D : MonoBehaviour
-{
-    private Transform targetPoint; // Punto de destino (mesa)
+{    
     public GameObject laptopPrefab; // Referencia al objeto de la laptop
+    public GameObject ParentObject; // Referencia al objeto padre donde se intanciaran las laptops
     float newY = 0.05f;
 
+    private Transform targetPoint; // Punto de destino (mesa)
     private Vector3 originalPosition; // Posición original del NPC
     private bool movingToTarget = true; // Indica si se mueve hacia el destino o la posición original
 

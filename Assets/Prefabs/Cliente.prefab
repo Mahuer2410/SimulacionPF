@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42fdb6d7f68a35f4abd18ed8248f1dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laptopPrefab: {fileID: 5216353477289628584, guid: be3a09f8fb859174abc49479234fc90c, type: 3}
+  ParentObject: {fileID: 0}
   movementSpeed: 0.5
 --- !u!95 &3995165044257607262
 Animator:

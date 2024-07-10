@@ -534,21 +534,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1621768417}
     m_Modifications:
     - target: {fileID: 1902736456619503735, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
-      propertyPath: laptopPrefab
+      propertyPath: ParentObject
       value: 
-      objectReference: {fileID: 5216353477289628584, guid: be3a09f8fb859174abc49479234fc90c, type: 3}
-    - target: {fileID: 6586255241666413421, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586255241666413421, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6586255241666413421, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1609834997
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1289570175}
     - target: {fileID: 8137268389530290141, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
