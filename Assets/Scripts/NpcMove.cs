@@ -5,6 +5,9 @@ using UnityEngine;
 public class NpcMove2D : MonoBehaviour
 {
     private Transform targetPoint; // Punto de destino (mesa)
+    public GameObject laptopPrefab; // Referencia al objeto de la laptop
+    float newY = 0.05f;
+
     private Vector3 originalPosition; // Posición original del NPC
     private bool movingToTarget = true; // Indica si se mueve hacia el destino o la posición original
 
@@ -41,6 +44,9 @@ public class NpcMove2D : MonoBehaviour
             // Verificamos si hemos llegado al punto de destino
             if (Vector3.Distance(transform.position, targetPoint.position) <= 0.1f)
             {
+                // Deja la laptop en el punto de destino
+                LeaveLaptop();
+
                 movingToTarget = false;
                 // Reiniciamos el tiempo de espera aleatorio
                 waitTime = Random.Range(1f, 5f);
@@ -62,4 +68,14 @@ public class NpcMove2D : MonoBehaviour
             }
         }
     }
+    void LeaveLaptop()
+    {
+        // Aumentamos la posición en y del punto de destino
+        newY += targetPoint.position.y + 0.02f;
+        Vector3 newPosition = new Vector3(-0.2f, newY, 0);
+
+        // Crea una instancia de la laptop en el nuevo punto de destino
+        Instantiate(laptopPrefab, newPosition, Quaternion.identity);
+    }
+
 }

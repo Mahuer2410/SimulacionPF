@@ -180,7 +180,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 239654977
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 83757341, guid: 04ea33c61480f1046800fc5592740209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -496,7 +496,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 239654977
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3b76ab956e6a1f24c9183254eb63afa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -533,9 +533,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1621768417}
     m_Modifications:
+    - target: {fileID: 1902736456619503735, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
+      propertyPath: laptopPrefab
+      value: 
+      objectReference: {fileID: 5216353477289628584, guid: be3a09f8fb859174abc49479234fc90c, type: 3}
     - target: {fileID: 6586255241666413421, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6586255241666413421, guid: 6f22cc315d1d09340b26c521f5c55303, type: 3}
       propertyPath: m_SortingOrder

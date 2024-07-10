@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MesaTecnica
+  - Laptop
   layers:
   - Default
   - TransparentFX
@@ -44,12 +46,12 @@ TagManager:
   - name: Servidores
     uniqueID: 3858283079
     locked: 0
-  - name: Equipos
-    uniqueID: 57073759
-    locked: 0
   - name: Mesas
     uniqueID: 239654977
     locked: 0
   - name: Npc's
     uniqueID: 2685132299
+    locked: 0
+  - name: Equipos
+    uniqueID: 57073759
     locked: 0

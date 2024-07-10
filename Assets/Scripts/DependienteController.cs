@@ -78,5 +78,4 @@ public class DependienteController : MonoBehaviour
             }
         }
     }
-
 }
