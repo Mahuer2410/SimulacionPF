@@ -21,13 +21,7 @@ public class DependienteController : MonoBehaviour
         // Establecemos un tiempo de espera aleatorio entre 1 y 5 segundos
         waitTime = Random.Range(1f, 5f);
         currentTime = waitTime;
-
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         // Buscamos todas las instancias del objeto "MesaTecnica"
         GameObject[] mesaTecnicaInstances = GameObject.FindGameObjectsWithTag("MesaTecnica");
         foreach (var instance in mesaTecnicaInstances)
@@ -35,6 +29,13 @@ public class DependienteController : MonoBehaviour
             targetPoints.Add(instance.transform);
         }
         targetPoints.Add(originalPosition);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
 
         // Esperamos antes de comenzar a mover al NPC
         if (currentTime > 0)
