@@ -6,6 +6,7 @@ public class NpcMove2D : MonoBehaviour
 {    
     public GameObject laptopPrefab; // Referencia al objeto de la laptop
     public GameObject ParentObject; // Referencia al objeto padre donde se intanciaran las laptops
+    private bool laptopInstantiated = false;//chequea si ya se ha instanciado una laptop
     float newY = 0.05f;
 
     private Transform targetPoint; // Punto de destino (mesa)
@@ -71,12 +72,17 @@ public class NpcMove2D : MonoBehaviour
     }
     void LeaveLaptop()
     {
-        // Aumentamos la posición en y del punto de destino
-        newY += targetPoint.position.y + 0.02f;
-        Vector3 newPosition = new Vector3(-0.2f, newY, 0);
+        if (!laptopInstantiated)
+        {
+            // Aumentamos la posición en y del punto de destino
+            newY += targetPoint.position.y + 0.02f;
+            Vector3 newPosition = new Vector3(-0.2f, newY, 0);
 
-        // Crea una instancia de la laptop en el nuevo punto de destino
-        Instantiate(laptopPrefab, newPosition, Quaternion.identity);
+            // Crea una instancia de la laptop en el nuevo punto de destino
+            Instantiate(laptopPrefab, newPosition, Quaternion.identity);
+
+            laptopInstantiated = true; // Marcamos que la laptop ya se ha instanciado
+        }
     }
 
 }
