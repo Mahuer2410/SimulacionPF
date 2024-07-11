@@ -20,12 +20,14 @@ public class NpcMove2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.CalculateWithoutLimits();
         originalPosition = transform.position;
         // Asignamos el objeto deseado a targetPoint
         targetPoint = GameObject.Find("Mesa").transform;
         // Establecemos un tiempo de espera aleatorio entre 1 y 5 segundos
-        waitTime = Random.Range(1f, 5f);
+        waitTime = Random.Range(1f, (float)GameManager.Instance.Wq);
         currentTime = waitTime;
+        Debug.Log($"Tiempo de espera: {waitTime}");
     }
 
     // Update is called once per frame

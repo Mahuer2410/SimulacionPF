@@ -223,9 +223,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //ultimo Pn
-    private double _lastPn;
-    public double LastPn
+   //ultimo Pn
+   private double _lastPn;
+   public double LastPn
     {
         get => _lastPn;
         set
@@ -235,9 +235,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //listas...
-    private List<QueueData> _queueData = new List<QueueData>();
-    public List<QueueData> QueueData
+   //listas...
+   private List<QueueData> _queueData = new List<QueueData>();
+   public List<QueueData> QueueData
     {
         get => _queueData;
         set
@@ -247,8 +247,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private List<QueueDataMultiple> _queueDataMultiple = new List<QueueDataMultiple>();
-    public List<QueueDataMultiple> QueueDataMultiple
+   private List<QueueDataMultiple> _queueDataMultiple = new List<QueueDataMultiple>();
+   public List<QueueDataMultiple> QueueDataMultiple
     {
         get => _queueDataMultiple;
         set
@@ -258,8 +258,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private List<QueueDataMultipleTwo> _queueDataMultipleTwo = new List<QueueDataMultipleTwo>();
-    public List<QueueDataMultipleTwo> QueueDataMultipleTwo
+   private List<QueueDataMultipleTwo> _queueDataMultipleTwo = new List<QueueDataMultipleTwo>();
+   public List<QueueDataMultipleTwo> QueueDataMultipleTwo
     {
         get => _queueDataMultipleTwo;
         set
@@ -269,8 +269,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private List<Simulacion> _resultados = new List<Simulacion>();
-    public List<Simulacion> Resultados
+   private List<Simulacion> _resultados = new List<Simulacion>();
+   public List<Simulacion> Resultados
     {
         get => _resultados;
         set
@@ -279,9 +279,9 @@ public class GameManager : MonoBehaviour
             OnPropertyChanged();
         }
     }
-
-    private List<Simulacion> _resultados2 = new List<Simulacion>();
-    public List<Simulacion> Resultados2
+    //Resultados
+   private List<Simulacion> _resultados2 = new List<Simulacion>();
+   public List<Simulacion> Resultados2
     {
         get => _resultados2;
         set
@@ -291,8 +291,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string name = null)
+   public event PropertyChangedEventHandler PropertyChanged;
+   protected void OnPropertyChanged([CallerMemberName] string name = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
@@ -307,8 +307,46 @@ public class GameManager : MonoBehaviour
 
    private bool isError = false;
    private string errorMessage = "";
-   //CALCULOS DE UN SOLO SERVIDOR: SIN LIMITE en la cola
 
+    //instancia del singletown
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.Log("Hay mas de un Game Manager en la scena!!");
+        }
+    }
+    void Start()
+    {
+        CalculateWithoutLimits();
+        Debug.Log($"rho: {rho}, po: {po}, ls: {ls}, lq: {lq}, ws: {ws}, wq: {wq}");
+    }
+    //-->CALCULOS DE LOS VALORES
+    public void CalculateWithoutLimits()
+    {
+        rho = 5.0 / 6.0; // Asegúrate de usar valores de punto flotante para la división
+        po = 1.0 - rho;
+        ls = rho / (1.0 - rho);
+        lq = Math.Pow(rho, 2.0) / (1.0 - rho);
+        ws = ls / 5.0;
+        wq = lq / 5.0;
+
+        // Redondea los valores antes de mostrarlos en la consola
+        rho = Math.Round(rho, 4);
+        po = Math.Round(po, 4);
+        ls = Math.Round(ls, 4);
+        lq = Math.Round(lq, 4);
+        ws = Math.Round(ws, 4);
+        wq = Math.Round(wq, 4);
+    }
+
+    //CALCULOS DE UN SOLO SERVIDOR: SIN LIMITE en la cola
     //-->GENERALES DE UN SOLO SERVIDOR
     private double CalculatePN(int iteration, double po, double rho)
     {
@@ -319,70 +357,6 @@ public class GameManager : MonoBehaviour
     {
         return previousResult + pn;
     }
-
-    //-->CALCULOS DE LOS VALORES
-    private void CalculateWithoutLimits()
-    {
-        rho = 5 / 6;
-
-        po = 1 - rho;
-
-        ls = rho / (1 - rho);
-
-        lq = Math.Pow(rho, 2.0) / (1 - rho);
-
-        ws = ls / 5;
-
-        wq = lq / 5;
-
-        CalculatesTableWithoutLimits(po, rho);
-
-        rho = Math.Round(rho, 4);
-        po = Math.Round(po,4);
-        ls = Math.Round(ls, 4);
-        lq = Math.Round(lq, 4);
-        ws = Math.Round(ws, 4);
-        wq = Math.Round(wq, 4);
-    }
-    //-->CALCULOS DE LA TABLA DE ITERACIONES
-    private void CalculatesTableWithoutLimits(double po, double rho)
-    {
-        const double limit = 0.9999;
-        int n = 0;
-        double previousResult = 0.0;
-
-        var results = new List<QueueData>();
-        double fn = 0.0000;
-
-        while (fn < limit)
-        {
-            double pn = CalculatePN(n, po, rho);
-
-            if (n == 0)
-            {
-                fn = pn;
-            }
-            else
-
-            {
-                fn = CalculateFN(previousResult, pn);
-            }
-
-            previousResult = fn;
-
-            if (fn > limit)
-            {
-                break;
-            }
-
-            results.Add(new QueueData(
-                n,pn.ToString("0.0000"),
-                fn.ToString("0.0000")
-                ));
-            n++;
-        }
-    }
-
 
 }
 
