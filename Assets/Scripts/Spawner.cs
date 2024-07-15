@@ -10,9 +10,9 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        for (int i = 0; i < numberOfInstances; i++)
+        for (int i = -1; i < (numberOfInstances-1); i++)
         {
-            Instantiate(myPrefab, new Vector3(i * 0.5f, transform.position.y, 0), Quaternion.identity);
+            Instantiate(myPrefab, new Vector3(i * 1.5f, transform.position.y, 0), Quaternion.identity);
         }
     }
 }

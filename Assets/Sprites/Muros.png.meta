@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 04ea33c61480f1046800fc5592740209
+guid: e49d9573386faba429dd0db14b844b61
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Npc\xB4s_0"
+      name: Muros_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 18
+        x: 0
+        y: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab029c876d2bbec4c9c3ce7afad0de4e
-      internalID: 281384839
+      spriteID: 19f8ae4d2e0d65541a3eb8cba410eb86
+      internalID: 932330400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_1"
+      name: Muros_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 18
+        x: 32
+        y: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,19 +145,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8011f405d951ae0429676ee276b019cf
-      internalID: -1524359712
+      spriteID: 244ce0a741c7b3047b71438e958b7ed2
+      internalID: -1517807212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_2"
+      name: Muros_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
-        width: 18
+        x: 64
+        y: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0ca085fb8dacb146be31fd2be8a84dc
-      internalID: -1659273204
+      spriteID: 7fc7d4aefe3e12c479fc7280a94261e3
+      internalID: 549475901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_3"
+      name: Muros_3
       rect:
         serializedVersion: 2
-        x: 104
-        y: 0
-        width: 18
+        x: 128
+        y: 64
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -187,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 933020bce9681fb4a89fc32f66ee79b7
-      internalID: 711172567
+      spriteID: ff92bdd320f450f41bb678891320d8c5
+      internalID: 560774189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_4"
+      name: Muros_4
       rect:
         serializedVersion: 2
-        x: 136
-        y: 0
-        width: 18
+        x: 0
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +208,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d001d0f53c8a49459fa65664b2e33db
-      internalID: -837033990
+      spriteID: 61f0e321c5cb35144881f555ea450dcc
+      internalID: 261061608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_5"
+      name: Muros_5
       rect:
         serializedVersion: 2
-        x: 168
-        y: 0
-        width: 18
+        x: 32
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,19 +229,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeeb619a2f1c8c1419e57629baf3e7c7
-      internalID: -2115933082
+      spriteID: 746348bcbc174b345864965fd5287da8
+      internalID: 1150630860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_6"
+      name: Muros_6
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
-        width: 18
+        x: 64
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -250,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2be81ba4aac35a4f953f5a08d9f420f
-      internalID: 1737368390
+      spriteID: c45dd0ae221a57d4fa3b0839b45e3b05
+      internalID: 621910398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_7"
+      name: Muros_7
       rect:
         serializedVersion: 2
-        x: 232
-        y: 0
-        width: 18
+        x: 96
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,19 +271,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f9f80c9ed00d6847af5d2d2717a6eee
-      internalID: 748798058
+      spriteID: ca1e8ac46cb62124482328bfdff1e7bf
+      internalID: 630875843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_8"
+      name: Muros_8
       rect:
         serializedVersion: 2
-        x: 264
-        y: 0
-        width: 18
+        x: 128
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -292,19 +292,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e5cbca679a56c24b91298014704d71f
-      internalID: 1102474130
+      spriteID: 01a85bb00451d65469b1f20e20f6b139
+      internalID: -760088820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_9"
+      name: Muros_9
       rect:
         serializedVersion: 2
-        x: 296
-        y: 0
-        width: 18
+        x: 160
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -313,19 +313,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cd3762c4f1301748bc960d8999ece98
-      internalID: 83757341
+      spriteID: a062a5bef1b82ad42a8db80be8a02d66
+      internalID: 664592913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_10"
+      name: Muros_10
       rect:
         serializedVersion: 2
-        x: 328
-        y: 0
-        width: 18
+        x: 192
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -334,19 +334,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db73f8c47e8318e42a2a774613e13972
-      internalID: 288980549
+      spriteID: cf1b6baf175ab224698a62db72e7c8c1
+      internalID: -1092279580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_11"
+      name: Muros_11
       rect:
         serializedVersion: 2
-        x: 360
-        y: 0
-        width: 18
+        x: 256
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -355,19 +355,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a196d95109920ee44a540d9cbbb68182
-      internalID: 1569267677
+      spriteID: 30ccf6a34a6ff624eb9ec3297bae6d31
+      internalID: 710844274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_12"
+      name: Muros_12
       rect:
         serializedVersion: 2
-        x: 392
+        x: 0
         y: 0
-        width: 18
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -376,19 +376,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ba881f7d93ab044e805ff3d5e6e3318
-      internalID: -1886486663
+      spriteID: d36af4cb081e9ef45814df0a3ce97c5c
+      internalID: 375564163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_13"
+      name: Muros_13
       rect:
         serializedVersion: 2
-        x: 424
+        x: 32
         y: 0
-        width: 18
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -397,19 +397,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb61078794ccd04d990359499346cb8
-      internalID: -1152925255
+      spriteID: 7843b07b6518f9542a9de5ebe0d5b58a
+      internalID: -1848977023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_14"
+      name: Muros_14
       rect:
         serializedVersion: 2
-        x: 456
+        x: 64
         y: 0
-        width: 18
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -418,19 +418,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d9d75460bcead64694ea950d2ffe254
-      internalID: -294464211
+      spriteID: c36aa803420c7b749907802eda794806
+      internalID: 796716656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "Npc\xB4s_15"
+      name: Muros_15
       rect:
         serializedVersion: 2
-        x: 488
+        x: 128
         y: 0
-        width: 18
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -439,50 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f59e905369e88244b60863f0aaa02c5
-      internalID: -1625370935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Npc\xB4s_16"
-      rect:
-        serializedVersion: 2
-        x: 520
-        y: 0
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1573a979970189479513aae2a3e7147
-      internalID: 634635798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Npc\xB4s_17"
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 0
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d57bdf275398234d8ea856074e36094
-      internalID: 1807660860
+      spriteID: fc8b528058d9e8d4f9aaff3338fd08e1
+      internalID: 352668958
       vertices: []
       indices: 
       edges: []
@@ -498,24 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Npc\xB4s_0": 281384839
-      "Npc\xB4s_1": -1524359712
-      "Npc\xB4s_10": 288980549
-      "Npc\xB4s_11": 1569267677
-      "Npc\xB4s_12": -1886486663
-      "Npc\xB4s_13": -1152925255
-      "Npc\xB4s_14": -294464211
-      "Npc\xB4s_15": -1625370935
-      "Npc\xB4s_16": 634635798
-      "Npc\xB4s_17": 1807660860
-      "Npc\xB4s_2": -1659273204
-      "Npc\xB4s_3": 711172567
-      "Npc\xB4s_4": -837033990
-      "Npc\xB4s_5": -2115933082
-      "Npc\xB4s_6": 1737368390
-      "Npc\xB4s_7": 748798058
-      "Npc\xB4s_8": 1102474130
-      "Npc\xB4s_9": 83757341
+      Muros_0: 932330400
+      Muros_1: -1517807212
+      Muros_10: -1092279580
+      Muros_11: 710844274
+      Muros_12: 375564163
+      Muros_13: -1848977023
+      Muros_14: 796716656
+      Muros_15: 352668958
+      Muros_2: 549475901
+      Muros_3: 560774189
+      Muros_4: 261061608
+      Muros_5: 1150630860
+      Muros_6: 621910398
+      Muros_7: 630875843
+      Muros_8: -760088820
+      Muros_9: 664592913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

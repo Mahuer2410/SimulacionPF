@@ -6,7 +6,7 @@ public class NpcMove2D : MonoBehaviour
 {    
     public GameObject laptopPrefab; // Referencia al objeto de la laptop
     public GameObject ParentObject; // Referencia al objeto padre donde se intanciaran las laptops
-    private bool laptopInstantiated = false;//chequea si ya se ha instanciado una laptop
+    private int laptopInstantiated = 0;//chequea si ya se ha instanciado una laptop
     float newY = 0.05f;
 
     private Transform targetPoint; // Punto de destino (mesa)
@@ -25,7 +25,7 @@ public class NpcMove2D : MonoBehaviour
         // Asignamos el objeto deseado a targetPoint
         targetPoint = GameObject.Find("Mesa").transform;
         // Establecemos un tiempo de espera aleatorio entre 1 y 5 segundos
-        waitTime = Random.Range(1f, (float)GameManager.Instance.Wq);
+        waitTime = Random.Range(0.0001f, (float)GameManager.Instance.wq);
         currentTime = waitTime;
         Debug.Log($"Tiempo de espera: {waitTime}");
     }
@@ -40,6 +40,10 @@ public class NpcMove2D : MonoBehaviour
             return; // Salimos del Update sin hacer nada más
         }
 
+        NpcMove();
+    }
+    void NpcMove() 
+    {
         if (movingToTarget)
         {
             Vector3 directionToTarget = (targetPoint.position - transform.position).normalized;
@@ -53,7 +57,7 @@ public class NpcMove2D : MonoBehaviour
 
                 movingToTarget = false;
                 // Reiniciamos el tiempo de espera aleatorio
-                waitTime = Random.Range(1f, 5f);
+                waitTime = Random.Range(1f, (float)GameManager.Instance.wq);
                 currentTime = waitTime;
             }
         }
@@ -67,23 +71,33 @@ public class NpcMove2D : MonoBehaviour
             {
                 movingToTarget = true;
                 // Reiniciamos el tiempo de espera aleatorio
-                waitTime = Random.Range(1f, 5f);
+                waitTime = Random.Range(1f, (float)GameManager.Instance.wq);
                 currentTime = waitTime;
             }
         }
     }
     void LeaveLaptop()
     {
-        if (!laptopInstantiated)
+        if (laptopInstantiated<10)
         {
             // Aumentamos la posición en y del punto de destino
-            newY += targetPoint.position.y + 0.02f;
-            Vector3 newPosition = new Vector3(-0.2f, newY, 0);
+            newY += targetPoint.position.y + 0.05f;
+            Vector3 newPosition = new Vector3(-0.6f, newY, 0);
 
             // Crea una instancia de la laptop en el nuevo punto de destino
             Instantiate(laptopPrefab, newPosition, Quaternion.identity);
 
-            laptopInstantiated = true; // Marcamos que la laptop ya se ha instanciado
+            laptopInstantiated++; // Marcamos que la laptop ya se ha instanciado
+        }
+        else
+        {
+            // se establece la posición en y del punto de destino para cuando hay mas de 10 laptop's          
+            Vector3 newPosition = new Vector3(-0.6f, newY, 0);
+
+            // Crea una instancia de la laptop en el nuevo punto de destino
+            Instantiate(laptopPrefab, newPosition, Quaternion.identity);
+
+            laptopInstantiated++; // Marcamos que la laptop ya se ha instanciado
         }
     }
 

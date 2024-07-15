@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DependienteController : MonoBehaviour
+public class DependentController : MonoBehaviour
 {
     private List<Transform> targetPoints = new List<Transform>(); // Lista de puntos de destino (mesas)
     private Vector3 originalPosition; // Posición original del NPC
@@ -14,32 +14,45 @@ public class DependienteController : MonoBehaviour
     private float currentTime; // Tiempo actual
     private int currentTargetIndex = 0; // Índice del punto de destino actual
 
-    // Start is called before the first frame update
+    private GameManager gameManager;
+
     void Start()
     {
         originalPosition = transform.position;
+        gameManager = GameManager.Instance; // Obtener la instancia del GameManager
+        gameManager.CalculateWithoutLimits(); // Calcular los valores (si aún no se ha hecho)
         
-        // Establecemos un tiempo de espera aleatorio entre 1 y 5 segundos
-        waitTime = Random.Range(1f, 5f);
-        currentTime = waitTime;
+        GameObject laptopObject = GameObject.FindGameObjectWithTag("Laptop");
+        if (laptopObject != null)
+        {
+            targetPoints.Add(laptopObject.transform);
+        }
         // Buscamos todas las instancias del objeto "MesaTecnica(Clone)"
-        GameObject[] mesaTecnicaInstances = GameObject.FindGameObjectsWithTag("MesaTecnica");
+        GameObject[] mesaTecnicaInstances = GameObject.FindGameObjectsWithTag("Technician");
         foreach (var instance in mesaTecnicaInstances)
         {
             targetPoints.Add(instance.transform);
         }
+        waitTime = Random.Range(1f, (float)gameManager.ws * 10);
+        Debug.LogWarning($"waitTime: {waitTime}");
+        currentTime = waitTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Esperamos antes de comenzar a mover al NPC
         if (currentTime > 0)
         {
+
             currentTime -= Time.deltaTime;
             return; // Salimos del Update sin hacer nada más
         }
 
+        Move();
+    }
+
+    void Move()
+    {
         // Si ya ha visitado todos los puntos de destino, mueve al NPC hacia la posición original
         if (visitedAllTargets)
         {
@@ -50,7 +63,8 @@ public class DependienteController : MonoBehaviour
             if (Vector3.Distance(transform.position, originalPosition) <= 0.1f)
             {
                 // Reiniciamos el tiempo de espera aleatorio
-                waitTime = Random.Range(1f, 5f);
+                waitTime = Random.Range(1f, (float)gameManager.ws);
+                Debug.LogWarning($"waitTime origen: {waitTime}");
                 currentTime = waitTime;
                 visitedAllTargets = false; // Reiniciamos la variable
             }
@@ -66,8 +80,9 @@ public class DependienteController : MonoBehaviour
             {
                 movingToTarget = !movingToTarget; // Cambiamos la dirección
                 currentTargetIndex = (currentTargetIndex + 1) % targetPoints.Count; // Cambiamos al siguiente punto de destino
-                                                                                    // Reiniciamos el tiempo de espera aleatorio
-                waitTime = Random.Range(1f, 5f);
+                // Reiniciamos el tiempo de espera aleatorio
+                waitTime = Random.Range(0.001f, (float)gameManager.ws);
+                Debug.LogWarning($"waitTime origen: {waitTime}");
                 currentTime = waitTime;
 
                 // Si hemos visitado todos los puntos de destino, activamos la variable

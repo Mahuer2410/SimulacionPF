@@ -6,361 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    private string _lambda;
-    public string Lambda
-    {
-        get => _lambda;
-        set
-        {
-            _lambda = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string _mu;
-    public string Mu
-    {
-        get => _mu;
-        set
-        {
-            _mu = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string _n;
-    public string N
-    {
-        get => _n;
-        set
-        {
-            _n = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string _k;
-    public string K
-    {
-        get => _k;
-        set
-        {
-            _k = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private string _c;
-    public string C
-    {
-        get => _c;
-        set
-        {
-            _c = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _rho;
-    public double Rho
-    {
-        get => _rho;
-        set
-        {
-            _rho = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _po;
-    public double Po
-    {
-        get => _po;
-        set
-        {
-            _po = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _ls;
-    public double Ls
-    {
-        get => _ls;
-        set
-        {
-            _ls = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _lq;
-    public double Lq
-    {
-        get => _lq;
-        set
-        {
-            _lq = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _ws;
-    public double Ws
-    {
-        get => _ws;
-        set
-        {
-            _ws = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _wq;
-    public double Wq
-    {
-        get => _wq;
-        set
-        {
-            _wq = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _rhoC;
-    public double RhoC
-    {
-        get => _rhoC;
-        set
-        {
-            _rhoC = value;
-            OnPropertyChanged();
-        }
-    }
-
-    private double _cWhitline;
-    public double CWhitline
-    {
-        get => _cWhitline;
-        set
-        {
-            _cWhitline = value;
-            OnPropertyChanged();
-        }
-    }
-
-    //cantidad de servidores activos
-    private double _cActivos;
-    public double CActivos
-    {
-        get => _cActivos;
-        set
-        {
-            _cActivos = value;
-            OnPropertyChanged();
-        }
-    }
-
-    //Ws auxiliar
-    private string _auxWs;
-    public string AuxWs
-    {
-        get => _auxWs;
-        set
-        {
-            _auxWs = value;
-            OnPropertyChanged();
-        }
-    }
-
-    //Wq auxiliar
-    private string _auxWq;
-    public string AuxWq
-    {
-        get => _auxWq;
-        set
-        {
-            _auxWq = value;
-            OnPropertyChanged();
-        }
-    }
-
-    //Rho auxiliar
-    private string _auxRho;
-    public string AuxRho
-    {
-        get => _auxRho;
-        set
-        {
-            _auxRho = value;
-            OnPropertyChanged();
-        }
-    }
-
-    //Lambda efectiva
-    private double _lambdaEfect;
-    public double LambdaEfect
-    {
-        get => _lambdaEfect;
-        set
-        {
-            _lambdaEfect = value;
-            OnPropertyChanged();
-        }
-    }
-
-    //Lambda perdida
-    private double _lambdaPer;
-    public double LambdaPer
-    {
-        get => _lambdaPer;
-        set
-        {
-            _lambdaPer = value;
-            OnPropertyChanged();
-        }
-    }
-
-   //ultimo Pn
-   private double _lastPn;
-   public double LastPn
-    {
-        get => _lastPn;
-        set
-        {
-            _lastPn = value;
-            OnPropertyChanged();
-        }
-    }
-
-   //listas...
-   private List<QueueData> _queueData = new List<QueueData>();
-   public List<QueueData> QueueData
-    {
-        get => _queueData;
-        set
-        {
-            _queueData = value;
-            OnPropertyChanged();
-        }
-    }
-
-   private List<QueueDataMultiple> _queueDataMultiple = new List<QueueDataMultiple>();
-   public List<QueueDataMultiple> QueueDataMultiple
-    {
-        get => _queueDataMultiple;
-        set
-        {
-            _queueDataMultiple = value;
-            OnPropertyChanged();
-        }
-    }
-
-   private List<QueueDataMultipleTwo> _queueDataMultipleTwo = new List<QueueDataMultipleTwo>();
-   public List<QueueDataMultipleTwo> QueueDataMultipleTwo
-    {
-        get => _queueDataMultipleTwo;
-        set
-        {
-            _queueDataMultipleTwo = value;
-            OnPropertyChanged();
-        }
-    }
-
-   private List<Simulacion> _resultados = new List<Simulacion>();
-   public List<Simulacion> Resultados
-    {
-        get => _resultados;
-        set
-        {
-            _resultados = value;
-            OnPropertyChanged();
-        }
-    }
-    //Resultados
-   private List<Simulacion> _resultados2 = new List<Simulacion>();
-   public List<Simulacion> Resultados2
-    {
-        get => _resultados2;
-        set
-        {
-            _resultados2 = value;
-            OnPropertyChanged();
-        }
-    }
-
-   public event PropertyChangedEventHandler PropertyChanged;
-   protected void OnPropertyChanged([CallerMemberName] string name = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    }
-   
-   private double rho = 0.0;
-   private double po = 0;
-   private double ls = 0;
-   private double lq = 0;
-   private double ws = 0;
-   private double wq = 0;
-   private double lastPn = 0;
-
-   private bool isError = false;
-   private string errorMessage = "";
-
-    //instancia del singletown
-    public static GameManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Debug.Log("Hay mas de un Game Manager en la scena!!");
-        }
-    }
-    void Start()
-    {
-        CalculateWithoutLimits();
-        Debug.Log($"rho: {rho}, po: {po}, ls: {ls}, lq: {lq}, ws: {ws}, wq: {wq}");
-    }
-    //-->CALCULOS DE LOS VALORES
-    public void CalculateWithoutLimits()
-    {
-        rho = 5.0 / 6.0; // Asegúrate de usar valores de punto flotante para la división
-        po = 1.0 - rho;
-        ls = rho / (1.0 - rho);
-        lq = Math.Pow(rho, 2.0) / (1.0 - rho);
-        ws = ls / 5.0;
-        wq = lq / 5.0;
-
-        // Redondea los valores antes de mostrarlos en la consola
-        rho = Math.Round(rho, 4);
-        po = Math.Round(po, 4);
-        ls = Math.Round(ls, 4);
-        lq = Math.Round(lq, 4);
-        ws = Math.Round(ws, 4);
-        wq = Math.Round(wq, 4);
-    }
-
-    //CALCULOS DE UN SOLO SERVIDOR: SIN LIMITE en la cola
-    //-->GENERALES DE UN SOLO SERVIDOR
-    private double CalculatePN(int iteration, double po, double rho)
-    {
-        return po * Math.Pow(rho, iteration);
-    }
-
-    private double CalculateFN(double previousResult, double pn)
-    {
-        return previousResult + pn;
-    }
-
-}
-
-//clases
 public class QueueData
 {
     public int N { get; set; }
@@ -375,98 +20,134 @@ public class QueueData
     }
 }
 
-public class QueueDataMultiple
+public class GameManager : MonoBehaviour
 {
-    public int N { get; set; }
-    public string Pn { get; set; }
-    public string Fn { get; set; }
-
-    public QueueDataMultiple(int n, string pn, string fn)
+    private List<QueueData> _queueData = new List<QueueData>();
+    public List<QueueData> QueueData
     {
-        N = n;
-        Pn = pn;
-        Fn = fn;
+        get => _queueData;
+        set
+        {
+            _queueData = value;
+            OnPropertyChanged();
+        }
     }
-}
-
-public class QueueDataMultipleTwo
-{
-    public int N { get; set; }
-    public string Pn { get; set; }
-    public string Fn { get; set; }
-    public string CnMinusPn { get; set; }
-
-    public QueueDataMultipleTwo(int n, string pn, string fn, string cnMinusPn)
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string name = null)
     {
-        N = n;
-        Pn = pn;
-        Fn = fn;
-        CnMinusPn = cnMinusPn;
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
-}
 
-public class QueueDataPO
-{
-    public int N { get; set; }
-    public double Result { get; set; }
+    //Variables
+    public double lambda;
+    public double mu;
+    //Variables a calcular.
+    public double rho = 0.0;
+    public double po = 0;
+    public double ls = 0;
+    public double lq = 0;
+    public double ws = 0;
+    public double wq = 0;
+    //private double lastPn = 0;
 
-    public QueueDataPO(int n, double result)
+    //instancia del singletown
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
     {
-        N = n;
-        Result = result;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.Log("Hay mas de un Game Manager en la scena!!");
+        }
+
     }
-}
-
-public class Simulacion
-{
-    public int NumeroSimulacion { get; set; }
-    public List<SimulacionResultado> Resultados { get; set; }
-    public double Media { get; set; }
-    public double Desviacion { get; set; }
-
-    public Simulacion(int numeroSimulacion, List<SimulacionResultado> resultados, double media, double desviacion)
+    void Start()
     {
-        NumeroSimulacion = numeroSimulacion;
-        Resultados = resultados;
-        Media = media;
-        Desviacion = desviacion;
+        CalculateWithoutLimits();
+        Debug.Log($"rho: {rho}, po: {po}, ls: {ls}, lq: {lq}, ws: {ws}, wq: {wq}");
+        PrintQueueData();
     }
-}
 
-public class SimulacionResultado
-{
-    public int NumeroIteracion { get; set; }
-    public int Resultado { get; set; }
-
-    public SimulacionResultado(int numeroIteracion, int resultado)
+    //-->CALCULOS DE LOS VALORES
+    public void CalculateWithoutLimits()
     {
-        NumeroIteracion = numeroIteracion;
-        Resultado = resultado;
+        rho = lambda / mu; // Asegúrate de usar valores de punto flotante para la división
+        po = 1.0 - rho;
+        ls = rho / (1.0 - rho);
+        lq = Math.Pow(rho, 2.0) / (1.0 - rho);
+        ws = ls / 5.0;
+        wq = lq / 5.0;
+
+        CalculatesTableWithoutLimits(po, rho);//Calculo de la tabla de valores.
+
+        // Redondea los valores antes de mostrarlos en la consola
+        rho = Math.Round(rho, 4);
+        po = Math.Round(po, 4);
+        ls = Math.Round(ls, 4);
+        lq = Math.Round(lq, 4);
+        ws = Math.Round(ws, 4);
+        wq = Math.Round(wq, 4);
     }
-}
 
-public class Iteracion
-{
-    public int N { get; set; }
-    public double Pn { get; set; }
-    public double Fn { get; set; }
-
-    public Iteracion(int n, double pn, double fn)
+    //CALCULOS DE UN SOLO SERVIDOR: SIN LIMITE en la cola
+    private double CalculatePN(int iteration, double po, double rho)
     {
-        N = n;
-        Pn = pn;
-        Fn = fn;
+        return po * Math.Pow(rho, iteration);
     }
-}
-
-public class Iteracion2
-{
-    public int N { get; set; }
-    public double Fn { get; set; }
-
-    public Iteracion2(int n, double fn)
+    private double CalculateFN(double previousResult, double pn)
     {
-        N = n;
-        Fn = fn;
+        return previousResult + pn;
+    }
+
+    //CALCULOS DE LA TABLA DE ITERACIONES
+    private void CalculatesTableWithoutLimits(double po, double rho)
+    {
+        const double limit = 0.9999;
+
+        int n = 0;
+        double previousResult = 0.0;
+
+        var results = new List<QueueData>();
+        double fn = 0.0000;
+
+        while (fn < limit)
+        {
+            double pn = CalculatePN(n, po, rho);
+            pn = Math.Round(pn, 4); // Redondear pn a 4 decimales
+
+            if (n == 0)
+            {
+                fn = pn;
+            }
+            else
+            {
+                fn = CalculateFN(previousResult, pn);
+                fn = Math.Round(fn, 4); // Redondear fn a 4 decimales
+            }
+
+            previousResult = fn;
+
+            if (fn > limit)
+            {
+                break;
+            }
+
+            results.Add(new QueueData(
+                n, pn.ToString(), fn.ToString()
+            ));
+            n++;
+        }
+        _queueData = results;
+    }
+    private void PrintQueueData()
+    {
+        foreach (var data in _queueData)
+        {
+            Debug.Log($"N: {data.N}, Pn: {data.Pn}, Fn: {data.Fn}");
+        }
     }
 }

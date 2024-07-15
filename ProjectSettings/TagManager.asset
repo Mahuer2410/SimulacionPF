@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MesaTecnica
   - Laptop
+  - Technician
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Equipos
     uniqueID: 57073759
+    locked: 0
+  - name: Decoracion
+    uniqueID: 2743573009
     locked: 0
