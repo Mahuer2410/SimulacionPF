@@ -5,9 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject myPrefab;
-    public int numberOfInstances; // Cantidad de instancias deseadas
+    public int numberOfInstances=1; // Cantidad de instancias deseadas
 
-    // Start is called before the first frame update
     void Awake()
     {
         for (int i = -1; i < (numberOfInstances-1); i++)

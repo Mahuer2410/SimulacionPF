@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class RelojController : MonoBehaviour
@@ -9,11 +7,6 @@ public class RelojController : MonoBehaviour
     public int multipTime;
     private float _minutos;
     private float _horas;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -29,6 +22,5 @@ public class RelojController : MonoBehaviour
         {
             _horas = 0;
         }
-
     }
 }

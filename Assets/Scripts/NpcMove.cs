@@ -7,7 +7,7 @@ public class NpcMove2D : MonoBehaviour
     public GameObject laptopPrefab; // Referencia al objeto de la laptop
     public GameObject ParentObject; // Referencia al objeto padre donde se intanciaran las laptops
     private int laptopInstantiated = 0;//chequea si ya se ha instanciado una laptop
-    float newY = 0.05f;
+    private float newY=0.1f;
 
     private Transform targetPoint; // Punto de destino (mesa)
     private Vector3 originalPosition; // Posición original del NPC
@@ -16,6 +16,8 @@ public class NpcMove2D : MonoBehaviour
     public float movementSpeed = 2f; // Velocidad de movimiento
     private float waitTime; // Tiempo de espera aleatorio
     private float currentTime; // Tiempo actual
+    public static event System.Action<GameObject> OnLaptopInstantiated;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class NpcMove2D : MonoBehaviour
         // Establecemos un tiempo de espera aleatorio entre 1 y 5 segundos
         waitTime = Random.Range(0.0001f, (float)GameManager.Instance.wq);
         currentTime = waitTime;
-        Debug.Log($"Tiempo de espera: {waitTime}");
+        Debug.Log($"Tiempo de espera Npc: {waitTime}");
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class NpcMove2D : MonoBehaviour
             currentTime -= Time.deltaTime;
             return; // Salimos del Update sin hacer nada más
         }
+
 
         NpcMove();
     }
@@ -54,11 +57,7 @@ public class NpcMove2D : MonoBehaviour
             {
                 // Deja la laptop en el punto de destino
                 LeaveLaptop();
-
                 movingToTarget = false;
-                // Reiniciamos el tiempo de espera aleatorio
-                waitTime = Random.Range(1f, (float)GameManager.Instance.wq);
-                currentTime = waitTime;
             }
         }
         else
@@ -71,23 +70,26 @@ public class NpcMove2D : MonoBehaviour
             {
                 movingToTarget = true;
                 // Reiniciamos el tiempo de espera aleatorio
-                waitTime = Random.Range(1f, (float)GameManager.Instance.wq);
+                waitTime = Random.Range(1f, (float)GameManager.Instance.wq*10);
                 currentTime = waitTime;
             }
         }
     }
     void LeaveLaptop()
     {
-        if (laptopInstantiated<10)
+        if (laptopInstantiated < 10)
         {
             // Aumentamos la posición en y del punto de destino
             newY += targetPoint.position.y + 0.05f;
-            Vector3 newPosition = new Vector3(-0.6f, newY, 0);
+            Vector3 newPosition = new Vector3(-0.6f, ParentObject.transform.position.y + newY, 0);
 
             // Crea una instancia de la laptop en el nuevo punto de destino
             Instantiate(laptopPrefab, newPosition, Quaternion.identity);
 
             laptopInstantiated++; // Marcamos que la laptop ya se ha instanciado
+            Instantiate(laptopPrefab, newPosition, Quaternion.identity);
+            OnLaptopInstantiated?.Invoke(laptopPrefab); // Notificar la instanciación de una nueva laptop
+            laptopInstantiated++;
         }
         else
         {
@@ -98,7 +100,10 @@ public class NpcMove2D : MonoBehaviour
             Instantiate(laptopPrefab, newPosition, Quaternion.identity);
 
             laptopInstantiated++; // Marcamos que la laptop ya se ha instanciado
+
+            Instantiate(laptopPrefab, newPosition, Quaternion.identity);
+            OnLaptopInstantiated?.Invoke(laptopPrefab); // Notificar la instanciación de una nueva laptop
+            laptopInstantiated++;
         }
     }
-
 }
